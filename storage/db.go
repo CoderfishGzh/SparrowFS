@@ -39,6 +39,7 @@ func Open(dirPath string) (*DB, error) {
 	return db, nil
 }
 
+// Merge TODO may be bug
 // Merge 合并数据文件，在rosedb当中是 Reclaim 方法
 func (db *DB) Merge() error {
 	// 没有数据，忽略
@@ -106,7 +107,7 @@ func (db *DB) Merge() error {
 	return nil
 }
 
-// Put 写入数据
+// Put 写入数据 (chunk handle, chunk data)
 func (db *DB) Put(key []byte, value []byte) (err error) {
 	if len(key) == 0 {
 		return
