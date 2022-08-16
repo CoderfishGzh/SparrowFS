@@ -34,8 +34,10 @@ func TestMiniDB_Put(t *testing.T) {
 
 	key := []byte("test_key_0")
 	val := []byte("test_val_0")
+	val2 := []byte("tast_val_1")
 	db.Put(key, val)
 	// get value
+	db.Put(key, val2)
 
 	v, _ := db.Get([]byte("test_key_0"))
 

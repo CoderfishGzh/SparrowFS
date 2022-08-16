@@ -17,6 +17,10 @@ type Entry struct {
 	Mark      uint16
 }
 
+func (e *Entry) Len() int {
+	return int(e.GetSize())
+}
+
 func NewEntry(key, value []byte, mark uint16) *Entry {
 	return &Entry{
 		Key:       key,
