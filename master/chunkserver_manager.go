@@ -161,12 +161,12 @@ func (csm *ChunkServerManager) AddChunk(addrs []SparrowFS.ServerAddress, chunk_h
 }
 
 // AddGarbage , add the removed chunk into the garbage list of the chunk server
-func (csm *ChunkServerManager) AddGarbage(addrs SparrowFS.ServerAddress, chunkHandle SparrowFS.ChunkHandle) {
+func (csm *ChunkServerManager) AddGarbage(adders SparrowFS.ServerAddress, chunkHandle SparrowFS.ChunkHandle) {
 	csm.mu.Lock()
 	defer csm.mu.Unlock()
 
 	// get the server info
-	sv, ok := csm.servers[addrs]
+	sv, ok := csm.servers[adders]
 	if ok {
 		sv.garbage = append(sv.garbage, chunkHandle)
 	}
